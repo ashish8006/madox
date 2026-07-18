@@ -5,31 +5,31 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const testimonials = [
   {
-    quote: 'MADOX did not simply find us a home — they found us a life we had only dreamed of. Their counsel transcended the transactional.',
-    author: 'Catherine & James Worthington',
-    role: 'Private Collectors',
-    location: 'London & Geneva',
+    quote: 'MADOX didn\'t just redesign our website — they rebuilt our entire digital presence. Revenue from organic channels tripled within six months.',
+    author: 'Sarah Chen',
+    role: 'CEO, NovaTech Solutions',
+    location: 'San Francisco & Singapore',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=70',
   },
   {
-    quote: 'The level of discretion, access, and sheer aesthetic intelligence they brought to our search was unlike anything we have encountered in twenty years of buying property.',
+    quote: 'The strategy they brought to our rebrand was unlike anything we had seen. They understood our market better than agencies we\'d worked with for years.',
     author: 'Rafael Montoya',
-    role: 'Founder, Montoya Capital',
+    role: 'Founder, Montoya Ventures',
     location: 'São Paulo & Miami',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=70',
   },
   {
-    quote: 'Every detail, every negotiation, every introduction was handled with a grace that matched the calibre of properties they represent. Extraordinary.',
+    quote: 'From the first discovery call to launch day, the MADOX team operated with a level of precision and creative intelligence that set a new benchmark for us.',
     author: 'Isabelle Marchetti',
-    role: 'Creative Director',
-    location: 'Milan & Côte d\'Azur',
+    role: 'CMO, Luminos Digital',
+    location: 'Milan & London',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70',
   },
   {
-    quote: 'A singular experience. They understood not just what we wanted, but what we did not yet know to ask for. The result surpassed every expectation.',
-    author: 'Sir Edward & Lady Blackwood',
-    role: 'Philanthropists',
-    location: 'Edinburgh & Amalfi',
+    quote: 'Our app went from 10k to 280k monthly active users in under a year. MADOX\'s performance marketing and UX work was the decisive factor.',
+    author: 'Edward Blackwood',
+    role: 'Product Director, Archway Labs',
+    location: 'Edinburgh & New York',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=70',
   },
 ]
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                   <span
                     key={i}
                     className="w-1 h-1 rounded-full"
-                    style={{ backgroundColor: '#c9a96e' }}
+                    style={{ backgroundColor: '#0066ff' }}
                   />
                 ))}
               </div>
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
         <div className="flex items-center justify-center gap-8 mt-14">
           <button
             onClick={prev}
-            className="text-white/60 hover:text-[#c9a96e] transition-colors duration-400 text-xl px-4"
+            className="text-white/60 hover:text-[#0066ff] transition-colors duration-400 text-xl px-4"
             aria-label="Previous"
           >
             ←
@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
                 onClick={() => navigate(i)}
                 className="relative w-10 h-10 rounded-full overflow-hidden transition-all duration-500"
                 style={{
-                  outline: i === active ? '1.5px solid #c9a96e' : '1.5px solid transparent',
+                  outline: i === active ? '1.5px solid #0066ff' : '1.5px solid transparent',
                   outlineOffset: '2px',
                   opacity: i === active ? 1 : 0.35,
                 }}
@@ -144,7 +144,7 @@ export default function TestimonialsSection() {
 
           <button
             onClick={next}
-            className="text-white/60 hover:text-[#c9a96e] transition-colors duration-400 text-xl px-4"
+            className="text-white/60 hover:text-[#0066ff] transition-colors duration-400 text-xl px-4"
             aria-label="Next"
           >
             →

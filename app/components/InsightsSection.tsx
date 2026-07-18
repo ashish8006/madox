@@ -6,23 +6,23 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 const articles = [
   {
     id: 1,
-    category: 'Project Stories',
-    title: 'Embodied carbon in heritage buildings: A counterintuitive case',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=85',
+    category: 'Strategy',
+    title: 'Why most rebrands fail — and the data-driven process that makes them stick',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=85',
     align: 'left' as const,
   },
   {
     id: 2,
-    category: 'Design Insights',
-    title: 'Why we still draw by hand before we draw on screen',
-    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1600&q=85',
+    category: 'Product Design',
+    title: 'The UX patterns that increased our client\'s conversion rate by 240%',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1600&q=85',
     align: 'right' as const,
   },
   {
     id: 3,
-    category: 'Market Intelligence',
-    title: 'The quiet return of the classical facade in urban architecture',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=85',
+    category: 'Performance',
+    title: 'How we scaled a B2B SaaS brand from $0 to $4M ARR in 18 months',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=85',
     align: 'left' as const,
   },
 ]
@@ -169,7 +169,7 @@ export default function InsightsSection() {
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
                 fontSize: 'clamp(44px, 6vw, 88px)',
-                color: '#c9a96e',
+                color: '#0066ff',
               }}
             >
               Insights

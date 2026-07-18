@@ -1,162 +1,110 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 
-const BG_IMAGE = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85'
-
-const fields = [
-  { id: 'name',    label: 'Full Name',    type: 'text',  placeholder: 'John Smith'          },
-  { id: 'email',   label: 'Email',        type: 'email', placeholder: 'john@example.com'    },
-  { id: 'phone',   label: 'Phone',        type: 'tel',   placeholder: '+1 (555) 000-0000'   },
-  { id: 'comment', label: 'Message',      type: 'text',  placeholder: 'How can we help you?', textarea: true },
+const heroBrands = [
+  'Malabar Gold & Diamonds',
+  'Tata Power DDL',
+  'Vivo Mobiles',
+  'Black+Decker',
+  'Karam Safety',
+  'CRC Group',
+  'SBP Housing',
+  'Hero Electric',
+  'Bonfiglioli',
+  'VVIP Group',
+  'Roto Pumps',
+  'Radico Khaitan',
+  'Exotica Drinks',
+  'Multifit Plywood',
+  'Grandthum',
 ]
 
-function CallbackForm({ mounted }: { mounted: boolean }) {
-  const [form, setForm]       = useState({ name: '', email: '', phone: '', comment: '' })
-  const [submitted, setSubmit] = useState(false)
+function BrandSlider({ mounted }: { mounted: boolean }) {
+  const [active, setActive] = useState(0)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmit(true)
-  }
+  useEffect(() => {
+    const t = setInterval(() => {
+      setActive(prev => (prev + 1) % heroBrands.length)
+    }, 2500)
+    return () => clearInterval(t)
+  }, [])
+
+  const visible = [
+    heroBrands[active % heroBrands.length],
+    heroBrands[(active + 1) % heroBrands.length],
+    heroBrands[(active + 2) % heroBrands.length],
+  ]
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      animate={mounted ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 1.0, delay: 0.9, ease: [0.23, 1, 0.32, 1] }}
-      className="w-full max-w-sm flex flex-col"
-      style={{ maxHeight: 'calc(100vh - 5rem)', marginTop: 'auto' }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={mounted ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.9, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
+      className="absolute bottom-10 right-10 md:right-16 flex flex-col gap-3 w-64"
     >
-      {/* Card */}
-      <div
-        className="relative px-8 pt-10 pb-8 md:px-10 md:pt-12 md:pb-10 overflow-y-auto"
-        style={{
-          background: 'rgba(10,9,8,0.72)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderTop: '1px solid rgba(201,169,110,0.35)',
-          borderLeft: '1px solid rgba(255,255,255,0.06)',
-          borderRight: '1px solid rgba(255,255,255,0.06)',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          scrollbarWidth: 'none',
-        }}
+      {/* Label */}
+      <p
+        className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-1"
+        style={{ fontFamily: 'var(--font-sans)' }}
       >
-        {/* Top gold accent line */}
-        <div
-          className="absolute top-0 left-8 right-8 h-px"
-          style={{ background: 'linear-gradient(90deg, transparent, #c9a96e 40%, #c9a96e 60%, transparent)' }}
-        />
+        Trusted by
+      </p>
 
-        {submitted ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex flex-col items-center justify-center py-10 text-center"
-          >
-            {/* Gold check circle */}
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-              style={{ border: '1px solid #c9a96e' }}
+      {/* Cards */}
+      <div className="flex flex-col gap-2 overflow-hidden">
+        <AnimatePresence mode="popLayout">
+          {visible.map((brand, i) => (
+            <motion.div
+              key={`${brand}-${active}-${i}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.3, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: i * 0.05 }}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl"
+              style={{
+                background: 'rgba(255,255,255,0.07)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: i === 0
+                  ? '1px solid rgba(0,102,255,0.5)'
+                  : '1px solid rgba(255,255,255,0.08)',
+              }}
             >
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#c9a96e" strokeWidth="1.5">
-                <path d="M4 11L9 16L18 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <p
-              className="text-white leading-snug mb-2"
-              style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '22px' }}
-            >
-              Thank you.
-            </p>
-            <p className="text-white/60 text-xs tracking-wide" style={{ fontFamily: 'var(--font-sans)' }}>
-              An advisor will reach out within 24 hours.
-            </p>
-          </motion.div>
-        ) : (
-          <>
-            {/* Heading */}
-            <div className="mt-14 mb-8">
+              {/* Blue dot */}
+              <div
+                className="shrink-0 w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: i === 0 ? '#0066ff' : 'rgba(255,255,255,0.3)' }}
+              />
               <p
-                className="text-[#c9a96e] text-[9px] tracking-[0.45em] uppercase mb-3"
-                style={{ fontFamily: 'var(--font-sans)' }}
-              >
-                Expert Consultation
-              </p>
-              <h3
-                className="text-white leading-[1.05]"
+                className="text-white truncate text-sm"
                 style={{
                   fontFamily: 'var(--font-sans)',
-                  fontWeight: 800,
-                  fontSize: 'clamp(20px, 2vw, 26px)',
+                  fontWeight: i === 0 ? 700 : 400,
+                  opacity: i === 0 ? 1 : 0.7,
                 }}
               >
-                Get a Call Back<br />
-                <span style={{ color: '#c9a96e' }}>from our Experts</span>
-              </h3>
-            </div>
+                {brand}
+              </p>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              {fields.map((f) => (
-                <div key={f.id} className="flex flex-col gap-1.5">
-                  <label
-                    htmlFor={f.id}
-                    className="text-[9px] tracking-[0.35em] uppercase text-white/60"
-                    style={{ fontFamily: 'var(--font-sans)' }}
-                  >
-                    {f.label}
-                  </label>
-
-                  {f.textarea ? (
-                    <textarea
-                      id={f.id}
-                      rows={3}
-                      required
-                      value={form[f.id as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                      placeholder={f.placeholder}
-                      className="bg-transparent text-white text-sm resize-none outline-none transition-colors duration-400"
-                      style={{
-                        fontFamily: 'var(--font-sans)',
-                        borderBottom: '1px solid rgba(255,255,255,0.12)',
-                        paddingBottom: '8px',
-                      }}
-                      onFocus={(e) => (e.target.style.borderBottomColor = '#c9a96e')}
-                      onBlur={(e) => (e.target.style.borderBottomColor = 'rgba(255,255,255,0.12)')}
-                    />
-                  ) : (
-                    <input
-                      id={f.id}
-                      type={f.type}
-                      required
-                      value={form[f.id as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                      placeholder={f.placeholder}
-                      className="bg-transparent text-white text-sm outline-none transition-colors duration-400"
-                      style={{
-                        fontFamily: 'var(--font-sans)',
-                        borderBottom: '1px solid rgba(255,255,255,0.12)',
-                        paddingBottom: '8px',
-                      }}
-                      onFocus={(e) => (e.target.style.borderBottomColor = '#c9a96e')}
-                      onBlur={(e) => (e.target.style.borderBottomColor = 'rgba(255,255,255,0.12)')}
-                    />
-                  )}
-                </div>
-              ))}
-
-              <button
-                type="submit"
-                className="mt-2 w-full py-3.5 text-black text-[11px] tracking-[0.3em] uppercase font-medium transition-opacity duration-300 hover:opacity-85"
-                style={{ fontFamily: 'var(--font-sans)', backgroundColor: '#c9a96e' }}
-              >
-                Request Call Back
-              </button>
-            </form>
-          </>
-        )}
+      {/* Progress dots */}
+      <div className="flex gap-1.5 mt-1">
+        {heroBrands.map((_, i) => (
+          <div
+            key={i}
+            className="h-px transition-all duration-300"
+            style={{
+              width: i === active ? 20 : 8,
+              backgroundColor: i === active ? '#0066ff' : 'rgba(255,255,255,0.2)',
+              borderRadius: 2,
+            }}
+          />
+        ))}
       </div>
     </motion.div>
   )
@@ -164,7 +112,6 @@ function CallbackForm({ mounted }: { mounted: boolean }) {
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [mouse, setMouse]     = useState({ x: 0, y: 0 })
   const [mounted, setMounted] = useState(false)
 
   const { scrollYProgress } = useScroll({
@@ -174,113 +121,120 @@ export default function HeroSection() {
 
   useEffect(() => {
     setMounted(true)
-    const handleMouse = (e: MouseEvent) => {
-      setMouse({
-        x: (e.clientX / window.innerWidth - 0.5) * 0.2,
-        y: (e.clientY / window.innerHeight - 0.5) * 0.2,
-      })
-    }
-    window.addEventListener('mousemove', handleMouse)
-    return () => window.removeEventListener('mousemove', handleMouse)
   }, [])
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0])
-  const heroY       = useTransform(scrollYProgress, [0, 0.22], ['0%', '-4%'])
-  const bigOpacity  = useTransform(scrollYProgress, [0.22, 0.44, 0.78, 0.92], [0, 1, 1, 0])
-  const bigScale    = useTransform(scrollYProgress, [0.22, 0.50], [0.95, 1])
-  const bigY        = useTransform(scrollYProgress, [0.44, 0.92], ['0%', '-18%'])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+  const heroY       = useTransform(scrollYProgress, [0, 0.15], ['0%', '-10%'])
+  const bigOpacity  = useTransform(scrollYProgress, [0.20, 0.38, 0.78, 0.92], [0, 1, 1, 0])
+  const bigScale    = useTransform(scrollYProgress, [0.20, 0.48], [0.95, 1])
+  const bigY        = useTransform(scrollYProgress, [0.38, 0.92], ['0%', '-18%'])
   const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
 
   return (
     <section ref={sectionRef} style={{ height: '400vh' }} className="relative">
       <div className="sticky top-0 h-screen overflow-hidden">
 
-        {/* ── Background image with mouse parallax ── */}
-        <motion.div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('${BG_IMAGE}')`,
-            x: mounted ? mouse.x * 30 : 0,
-            y: mounted ? mouse.y * 30 : 0,
-            scale: 1.08,
-          }}
-          transition={{ type: 'tween', duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-        />
+        {/* ── Video background ── */}
+        <div className="absolute inset-0 z-0 overflow-hidden" style={{ backgroundColor: '#050a12' }}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ transform: 'scale(1.05)' }}
+          >
+            <source
+              src="/video/madox-home-hero-video.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
 
-        {/* ── Dark gradient overlay ── */}
+        {/* ── Dark overlay + gradient ── */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
-            background: 'linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.55) 45%, rgba(10,9,8,0.25) 100%)',
+            background: 'linear-gradient(to top, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.55) 45%, rgba(5,10,18,0.4) 100%)',
           }}
         />
 
         {/* ── Phase 1: Hero content (fades on scroll) ── */}
         <motion.div
           style={{ opacity: heroOpacity, y: heroY }}
-          className="absolute inset-0 z-20 flex items-end pt-16"
+          className="absolute inset-0 z-20 flex items-center"
         >
-          <div className="w-full max-w-[1400px] mx-auto px-10 md:px-16 pt-24 pb-16 md:pt-28 md:pb-20 flex flex-col md:flex-row md:items-end justify-between gap-10">
+          <div className="flex flex-col items-start text-left px-10 md:px-16 max-w-4xl">
+            <motion.p
+              initial={{ clipPath: 'inset(0 0 100% 0)' }}
+              animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
+              transition={{ duration: 1.0, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              className="text-[11px] tracking-[0.35em] uppercase mb-6"
+              style={{ fontFamily: 'var(--font-sans)', color: '#ffffff' }}
+            >
+              Madox Communications · Est. 2006
+            </motion.p>
 
-            {/* LEFT — editorial headline */}
-            <div className="flex flex-col">
-              <motion.p
-                initial={{ clipPath: 'inset(0 0 100% 0)' }}
-                animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
-                transition={{ duration: 1.0, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                className="text-[11px] tracking-[0.35em] uppercase mb-4"
-                style={{ fontFamily: 'var(--font-sans)', color: '#c9a96e' }}
+            <motion.h1
+              initial={{ clipPath: 'inset(0 0 100% 0)' }}
+              animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
+              transition={{ duration: 1.1, delay: 0.55, ease: [0.23, 1, 0.32, 1] }}
+              className="text-white leading-[0.9] mb-1"
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 800,
+                fontSize: 'clamp(56px, 9vw, 80px)',
+              }}
+            >
+              Make Brands
+            </motion.h1>
+
+            <motion.h1
+              initial={{ clipPath: 'inset(0 0 100% 0)' }}
+              animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
+              transition={{ duration: 1.1, delay: 0.75, ease: [0.23, 1, 0.32, 1] }}
+              className="leading-[0.9] mb-8"
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 800,
+                fontSize: 'clamp(56px, 9vw, 80px)',
+                color: '#0066ff',
+              }}
+            >
+              Win.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={mounted ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.9, delay: 1.0, ease: [0.23, 1, 0.32, 1] }}
+              className="text-white/60 text-sm leading-relaxed max-w-lg mb-8"
+              style={{ fontFamily: 'var(--font-sans)' }}
+            >
+              We operate at the intersection of creativity and <strong className="text-white/80 font-bold">performance</strong> — building brands that dominate their markets with data-backed precision.
+            </motion.p>
+
+            <motion.button
+              initial={{ opacity: 0, y: 14 }}
+              animate={mounted ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.9, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
+              onClick={() => window.dispatchEvent(new CustomEvent('open-lead-modal'))}
+              className="flex items-center gap-3 group"
+              style={{ fontFamily: 'var(--font-sans)' }}
+            >
+              <span
+                className="flex items-center gap-3 px-6 py-3 rounded-full text-white text-sm font-semibold transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#0066ff' }}
               >
-                Madox Communications · Est. 2006
-              </motion.p>
-
-              <motion.h1
-                initial={{ clipPath: 'inset(0 0 100% 0)' }}
-                animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
-                transition={{ duration: 1.1, delay: 0.55, ease: [0.23, 1, 0.32, 1] }}
-                className="text-white leading-[0.9] mb-1"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 800,
-                  fontSize: 'clamp(56px, 9vw, 80px)',
-                }}
-              >
-                Make Brands
-              </motion.h1>
-
-              <motion.h1
-                initial={{ clipPath: 'inset(0 0 100% 0)' }}
-                animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
-                transition={{ duration: 1.1, delay: 0.75, ease: [0.23, 1, 0.32, 1] }}
-                className="leading-[0.9] mb-8"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 800,
-                  fontSize: 'clamp(56px, 9vw, 80px)',
-                  color: '#c9a96e',
-                }}
-              >
-                Win.
-              </motion.h1>
-
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={mounted ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.9, delay: 1.0, ease: [0.23, 1, 0.32, 1] }}
-                className="flex items-center gap-6"
-              >
-                <p
-                  className="text-white/60 text-sm leading-relaxed max-w-lg hidden lg:block"
-                  style={{ fontFamily: 'var(--font-sans)' }}
-                >
-                  We operate at the intersection of creativity and <strong className="text-white/80 font-bold">performance</strong> — building brands that dominate their markets with data-backed precision.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* RIGHT — callback form */}
-            <CallbackForm mounted={mounted} />
+                Consult Our Strategy Team
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-0.5 transition-transform">
+                  <path d="M2 7h10M8 3l4 4-4 4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </motion.button>
           </div>
+
+          <BrandSlider mounted={mounted} />
         </motion.div>
 
         {/* ── Phase 2: Large brand text — single fade in, no double fade ── */}

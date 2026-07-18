@@ -6,33 +6,33 @@ import { motion, useInView } from 'framer-motion'
 const services = [
   {
     number: '01',
-    title: 'Acquisitions & Advisory',
-    description: 'Strategic guidance for buyers seeking trophy assets in primary and secondary markets worldwide.',
+    title: 'Brand Strategy & Identity',
+    description: 'We define what your brand stands for, who it speaks to, and how it dominates its category — before a single pixel is placed.',
   },
   {
     number: '02',
-    title: 'Portfolio Management',
-    description: 'Comprehensive oversight of luxury real estate holdings, from single residences to diversified estates.',
+    title: 'Web Design & Development',
+    description: 'High-performance websites and web apps built with modern stacks — fast, accessible, and engineered to convert.',
   },
   {
     number: '03',
-    title: 'Private Sales',
-    description: 'Discreet, off-market transactions handled with the utmost confidentiality for discerning clients.',
+    title: 'Performance Marketing',
+    description: 'Data-backed paid media, SEO, and growth campaigns that drive measurable ROI across every channel.',
   },
   {
     number: '04',
-    title: 'Investment & Yield',
-    description: 'Identifying high-yield luxury investment opportunities across the global real estate landscape.',
+    title: 'Product & UX Design',
+    description: 'User-centred digital products designed from insight to interface — built for retention, not just aesthetics.',
   },
   {
     number: '05',
-    title: 'Interior Consulting',
-    description: 'Curated introductions to world-class architects and interior designers for bespoke transformations.',
+    title: 'Content & Creative',
+    description: 'Compelling copy, motion, and visual content that communicates authority and earns audience attention.',
   },
   {
     number: '06',
-    title: 'Relocation & Lifestyle',
-    description: 'End-to-end relocation services for international clients seeking seamless transitions to new homes.',
+    title: 'Analytics & Intelligence',
+    description: 'Custom dashboards, data pipelines, and insight frameworks that turn raw numbers into competitive advantage.',
   },
 ]
 
@@ -56,7 +56,7 @@ export default function ServicesSection() {
             letterSpacing: '0.05em',
           }}
         >
-          EXPERTISE · ADVISORY · PRECISION · EXPERTISE · ADVISORY · PRECISION ·
+          STRATEGY · DESIGN · TECHNOLOGY · STRATEGY · DESIGN · TECHNOLOGY ·
         </motion.p>
       </div>
 
@@ -105,7 +105,7 @@ export default function ServicesSection() {
               style={{ borderColor: 'rgba(255,255,255,0.05)' }}
             >
               <div
-                className="text-[#c9a96e] shrink-0 w-12 text-sm"
+                className="text-[#0066ff] shrink-0 w-12 text-sm"
                 style={{ fontFamily: 'var(--font-sans)', fontWeight: 200, letterSpacing: '0.1em' }}
               >
                 {service.number}
@@ -113,7 +113,7 @@ export default function ServicesSection() {
 
               <div className="flex-1 min-w-0">
                 <h3
-                  className="text-white group-hover:text-[#c9a96e] transition-colors duration-500 mb-1"
+                  className="text-white group-hover:text-[#0066ff] transition-colors duration-500 mb-1"
                   style={{
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 800,
@@ -130,7 +130,7 @@ export default function ServicesSection() {
                 </p>
               </div>
 
-              <div className="shrink-0 text-white/60 group-hover:text-[#c9a96e] group-hover:translate-x-2 transition-all duration-500 text-xl">
+              <div className="shrink-0 text-white/60 group-hover:text-[#0066ff] group-hover:translate-x-2 transition-all duration-500 text-xl">
                 →
               </div>
 

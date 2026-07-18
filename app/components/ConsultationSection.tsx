@@ -54,7 +54,7 @@ export default function ConsultationSection() {
               fontFamily: 'var(--font-sans)',
             }}
           >
-            CONSULTATION
+            INNOVATION
           </span>
         </motion.div>
 
@@ -91,9 +91,9 @@ export default function ConsultationSection() {
                 textTransform: 'uppercase',
               }}
             >
-              Have a Project<br />
-              In{' '}
-              <span style={{ color: 'rgba(255,255,255,0.45)' }}>Mind</span>
+              Have an Idea<br />
+              Let's{' '}
+              <span style={{ color: 'rgba(255,255,255,0.45)' }}>Build It</span>
             </h2>
 
             {/* CTA button */}

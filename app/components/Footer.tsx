@@ -1,7 +1,7 @@
 const footerLinks = {
-  Properties: ['New Listings', 'Featured Estates', 'Penthouses', 'Villas', 'Historic Homes'],
-  Services: ['Acquisitions', 'Private Sales', 'Portfolio Mgmt', 'Consulting', 'Relocation'],
-  Company: ['Our Story', 'Advisors', 'Awards', 'Press', 'Careers'],
+  Work: ['Case Studies', 'Brand Projects', 'Web & Apps', 'Campaigns', 'Results'],
+  Services: ['Brand Strategy', 'Web Development', 'Performance Marketing', 'UX Design', 'Analytics'],
+  Company: ['Our Story', 'Team', 'Awards', 'Press', 'Careers'],
   Legal: ['Privacy Policy', 'Terms of Use', 'Cookie Policy', 'Disclaimer'],
 }
 

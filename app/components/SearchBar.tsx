@@ -27,7 +27,7 @@ export default function SearchBar() {
                 onClick={() => setActiveType(type)}
                 className={`text-xs tracking-[0.2em] uppercase px-5 py-2.5 transition-all duration-300 ${
                   activeType === type
-                    ? 'bg-[#c9a96e] text-black font-medium'
+                    ? 'bg-[#0066ff] text-black font-medium'
                     : 'text-white/60 hover:text-white/70'
                 }`}
               >
@@ -69,7 +69,7 @@ export default function SearchBar() {
               </select>
             </div>
 
-            <button className="bg-[#c9a96e] hover:bg-[#e4c99a] transition-colors duration-300 flex items-center justify-center gap-3 group py-4 px-6">
+            <button className="bg-[#0066ff] hover:bg-[#3385ff] transition-colors duration-300 flex items-center justify-center gap-3 group py-4 px-6">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <circle cx="8" cy="8" r="5.5" stroke="black" strokeWidth="1.5"/>
                 <path d="M13 13L16 16" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>

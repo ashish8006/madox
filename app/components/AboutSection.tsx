@@ -4,10 +4,10 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 
 const stats = [
-  { value: '$4.2B', label: 'In Transactions' },
-  { value: '1,200+', label: 'Properties Sold' },
-  { value: '32', label: 'Global Markets' },
-  { value: '18 yrs', label: 'Of Excellence' },
+  { value: '200+', label: 'Brands Built' },
+  { value: '3.8×', label: 'Avg. ROI Delivered' },
+  { value: '18', label: 'Global Markets' },
+  { value: '18 yrs', label: 'In the Industry' },
 ]
 
 const MAIN_IMAGE = 'https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80'
@@ -65,13 +65,13 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
               className="absolute top-6 left-6 p-4"
-              style={{ backgroundColor: '#c9a96e', width: 100 }}
+              style={{ backgroundColor: '#0066ff', width: 100 }}
             >
               <p
                 className="text-[9px] tracking-[0.15em] uppercase text-black leading-snug"
                 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600 }}
               >
-                No.1 Luxury<br />Agency 2024
+                Top IT Agency<br />2024
               </p>
             </motion.div>
           </div>
@@ -82,7 +82,7 @@ export default function AboutSection() {
               animate={contentInView ? { clipPath: 'inset(0 0 0% 0)' } : {}}
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
               className="text-[11px] tracking-[0.35em] uppercase mb-6"
-              style={{ fontFamily: 'var(--font-sans)', color: '#c9a96e' }}
+              style={{ fontFamily: 'var(--font-sans)', color: '#0066ff' }}
             >
               Our Story
             </motion.p>
@@ -98,7 +98,7 @@ export default function AboutSection() {
                 fontSize: 'clamp(40px, 5vw, 72px)',
               }}
             >
-              Redefining
+              We Build
             </motion.h2>
 
             <motion.h2
@@ -112,7 +112,7 @@ export default function AboutSection() {
                 fontSize: 'clamp(40px, 5vw, 72px)',
               }}
             >
-              Luxury Living
+              Bold Brands
             </motion.h2>
 
             <motion.p
@@ -122,7 +122,7 @@ export default function AboutSection() {
               className="text-white/60 text-sm leading-[1.9] mb-12"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
-              For nearly two decades, MADOX has been the trusted advisor to the world's most discerning individuals, families, and institutions. We operate at the intersection of art, architecture, and ambition — curating an unparalleled portfolio of extraordinary homes across the globe's most coveted addresses.
+              For nearly two decades, MADOX has been the engine behind some of the world's fastest-growing brands. We sit at the intersection of strategy, design, and technology — building digital ecosystems that don't just look good, but perform with precision across every market we enter.
             </motion.p>
 
             <motion.div
@@ -158,10 +158,10 @@ export default function AboutSection() {
               initial={{ opacity: 0 }}
               animate={contentInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
-              className="group flex items-center gap-3 text-sm text-white/60 hover:text-[#c9a96e] transition-colors duration-500 w-fit"
+              className="group flex items-center gap-3 text-sm text-white/60 hover:text-[#0066ff] transition-colors duration-500 w-fit"
               style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.1em' }}
             >
-              Meet Our Advisors
+              Meet Our Team
               <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
             </motion.a>
           </div>

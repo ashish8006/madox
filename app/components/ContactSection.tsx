@@ -5,16 +5,16 @@ import { motion, useInView } from 'framer-motion'
 
 const contactDetails = [
   {
-    label: 'Address',
-    value: '9 West 57th Street, New York, NY 10019',
+    label: 'Headquarters',
+    value: '14 Finsbury Square, London, EC2A 1BR',
   },
   {
     label: 'Phone',
-    value: '+1 (800) 555-9999',
+    value: '+44 20 7946 0321',
   },
   {
     label: 'Email',
-    value: 'inquiries@luxeestate.com',
+    value: 'hello@madox.io',
   },
 ]
 
@@ -42,7 +42,7 @@ export default function ContactSection() {
               animate={inView ? { clipPath: 'inset(0 0 0% 0)' } : {}}
               transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
               className="text-[11px] tracking-[0.35em] uppercase mb-6"
-              style={{ fontFamily: 'var(--font-sans)', color: '#c9a96e' }}
+              style={{ fontFamily: 'var(--font-sans)', color: '#0066ff' }}
             >
               Get in Touch
             </motion.p>
@@ -58,7 +58,7 @@ export default function ContactSection() {
                 fontSize: 'clamp(36px, 4vw, 64px)',
               }}
             >
-              Begin a Private Conversation
+              Let's Build Something Great
             </motion.h2>
 
             <motion.p
@@ -68,7 +68,7 @@ export default function ContactSection() {
               className="text-white/60 text-sm leading-[1.9] mb-14"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
-              Our advisors are available for private consultations by appointment. We welcome inquiries from buyers, sellers, and those simply seeking expert counsel on the luxury property market.
+              Whether you're launching a product, scaling a brand, or rethinking your digital strategy — we'd love to hear about it. Drop us a message and we'll get back within 24 hours.
             </motion.p>
 
             <motion.div
@@ -141,7 +141,7 @@ export default function ContactSection() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#c9a96e] outline-none transition-colors duration-500 placeholder:text-white/60"
+                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#0066ff] outline-none transition-colors duration-500 placeholder:text-white/60"
                     style={{ fontFamily: 'var(--font-sans)' }}
                     placeholder="Full name"
                   />
@@ -159,7 +159,7 @@ export default function ContactSection() {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#c9a96e] outline-none transition-colors duration-500 placeholder:text-white/60"
+                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#0066ff] outline-none transition-colors duration-500 placeholder:text-white/60"
                     style={{ fontFamily: 'var(--font-sans)' }}
                     placeholder="your@email.com"
                   />
@@ -177,9 +177,9 @@ export default function ContactSection() {
                     required
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#c9a96e] outline-none transition-colors duration-500 resize-none placeholder:text-white/60"
+                    className="w-full bg-transparent text-white text-sm pb-3 border-b border-white/10 focus:border-[#0066ff] outline-none transition-colors duration-500 resize-none placeholder:text-white/60"
                     style={{ fontFamily: 'var(--font-sans)' }}
-                    placeholder="Tell us about your property ambitions..."
+                    placeholder="Tell us about your project..."
                   />
                 </div>
 
@@ -188,7 +188,7 @@ export default function ContactSection() {
                   className="w-full py-4 text-[11px] tracking-[0.2em] uppercase transition-opacity duration-500 hover:opacity-80"
                   style={{
                     fontFamily: 'var(--font-sans)',
-                    backgroundColor: '#c9a96e',
+                    backgroundColor: '#0066ff',
                     color: '#0a0908',
                   }}
                 >

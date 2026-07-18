@@ -1,6 +1,8 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import WhySection from './components/WhySection'
+import PartnersSection from './components/PartnersSection'
+import TrustedBySection from './components/TrustedBySection'
 import LogoStrip from './components/LogoStrip'
 import PropertiesSection from './components/PropertiesSection'
 import InsightsSection from './components/InsightsSection'
@@ -18,12 +20,15 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <WhySection />
+      <PartnersSection />
+      {/* <TrustedBySection /> */}
       <LogoStrip />
       <PropertiesSection />
-      <InsightsSection />
-      <ConsultationSection />
+      {/* <InsightsSection /> */}
+    
       <ServicesSection />
-      <AboutSection />
+        <ConsultationSection />
+      {/* <AboutSection /> */}
       <TestimonialsSection />
       <CTASection />
       <ContactSection />

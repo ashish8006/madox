@@ -83,7 +83,7 @@ export default function LogoStrip() {
           initial={{ opacity: 0, y: 14 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
-          className="text-[10px] tracking-[0.55em] uppercase text-[#c9a96e] mb-8"
+          className="text-[10px] tracking-[0.55em] uppercase text-[#0066ff] mb-8"
           style={{ fontFamily: 'var(--font-sans)' }}
         >
           Exceptional Living
@@ -115,7 +115,7 @@ export default function LogoStrip() {
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
               fontSize: 'clamp(44px, 7.5vw, 112px)',
-              color: '#c9a96e',
+              color: '#0066ff',
             }}
           >
             Meets Legacy.
@@ -178,7 +178,7 @@ export default function LogoStrip() {
                 >
                   {item.name}
                 </span>
-                <span style={{ color: '#c9a96e', opacity: 0.25, fontSize: '5px' }}>◆</span>
+                <span style={{ color: '#0066ff', opacity: 0.25, fontSize: '5px' }}>◆</span>
               </span>
             ))}
           </motion.div>
