@@ -19,10 +19,10 @@ export default function WhySection() {
   return (
     <section ref={ref} className="relative overflow-hidden" style={{ backgroundColor: '#0a0908' }}>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-16 py-28 md:py-36">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-36">
 
         {/* ── HEADER ROW ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-20 mb-20">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-20 mb-14 md:mb-20">
 
           {/* LEFT — text block */}
           <div className="lg:w-[55%]">

@@ -45,7 +45,7 @@ function ArticleRow({ article }: { article: typeof articles[0] }) {
   const isLeft = article.align === 'left'
 
   return (
-    <div ref={rowRef} className="relative overflow-hidden" style={{ height: '70vh', minHeight: '480px' }}>
+    <div ref={rowRef} className="relative overflow-hidden" style={{ height: '60vh', minHeight: '320px' }}>
 
       {/* ── Full-width zooming background image ── */}
       <motion.div
@@ -71,7 +71,7 @@ function ArticleRow({ article }: { article: typeof articles[0] }) {
           transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
           className="relative flex flex-col justify-center"
           style={{
-            width: 'clamp(300px, 38vw, 560px)',
+            width: 'clamp(260px, 85vw, 560px)',
             padding: 'clamp(36px, 4vw, 60px)',
             background: 'rgba(234, 230, 224, 0.88)',
             backdropFilter: 'blur(14px)',

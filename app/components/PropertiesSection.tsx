@@ -102,10 +102,10 @@ export default function PropertiesSection() {
 
   return (
     <section id="properties" ref={sectionRef} style={{ height: `${slides.length * 100}vh` }} className="relative">
-      <div className="sticky top-0 h-screen overflow-hidden flex" style={{ backgroundColor: '#080c14' }}>
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col md:flex-row" style={{ backgroundColor: '#080c14' }}>
 
         {/* ── LEFT — text panel ── */}
-        <div className="relative flex flex-col justify-center w-[44%] shrink-0 px-14 md:px-20">
+        <div className="relative flex flex-col justify-center w-full md:w-[44%] shrink-0 px-6 md:px-14 lg:px-20 pt-20 pb-4 md:py-0 z-10">
 
           {/* Blue vertical accent */}
           <div
@@ -174,7 +174,7 @@ export default function PropertiesSection() {
         </div>
 
         {/* ── RIGHT — blind image ── */}
-        <div className="relative flex-1 overflow-hidden">
+        <div className="relative flex-1 overflow-hidden min-h-[40vh] md:min-h-0">
           <AnimatePresence mode="wait">
             <motion.div key={active} className="absolute inset-0">
 

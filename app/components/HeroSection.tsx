@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const heroBrands = [
   'Malabar Gold & Diamonds',
@@ -42,7 +42,7 @@ function BrandSlider({ mounted }: { mounted: boolean }) {
       initial={{ opacity: 0, y: 20 }}
       animate={mounted ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
-      className="absolute bottom-10 right-10 md:right-16 flex flex-col gap-3 w-64"
+      className="hidden md:flex absolute bottom-10 right-10 md:right-16 flex-col gap-3 w-56 md:w-64"
     >
       {/* Label */}
       <p
@@ -114,25 +114,13 @@ export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [mounted, setMounted] = useState(false)
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end end'],
-  })
-
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
-  const heroY       = useTransform(scrollYProgress, [0, 0.15], ['0%', '-10%'])
-  const bigOpacity  = useTransform(scrollYProgress, [0.20, 0.38, 0.78, 0.92], [0, 1, 1, 0])
-  const bigScale    = useTransform(scrollYProgress, [0.20, 0.48], [0.95, 1])
-  const bigY        = useTransform(scrollYProgress, [0.38, 0.92], ['0%', '-18%'])
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
-
   return (
-    <section ref={sectionRef} style={{ height: '400vh' }} className="relative">
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen">
+      <div className="h-full overflow-hidden">
 
         {/* ── Video background ── */}
         <div className="absolute inset-0 z-0 overflow-hidden" style={{ backgroundColor: '#050a12' }}>
@@ -159,12 +147,9 @@ export default function HeroSection() {
           }}
         />
 
-        {/* ── Phase 1: Hero content (fades on scroll) ── */}
-        <motion.div
-          style={{ opacity: heroOpacity, y: heroY }}
-          className="absolute inset-0 z-20 flex items-center"
-        >
-          <div className="flex flex-col items-start text-left px-10 md:px-16 max-w-4xl">
+        {/* ── Hero content ── */}
+        <div className="absolute inset-0 z-20 flex items-center">
+          <div className="flex flex-col items-start text-left px-6 md:px-10 lg:px-16 max-w-4xl w-full">
             <motion.p
               initial={{ clipPath: 'inset(0 0 100% 0)' }}
               animate={mounted ? { clipPath: 'inset(0 0 0% 0)' } : {}}
@@ -183,7 +168,7 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
-                fontSize: 'clamp(56px, 9vw, 80px)',
+                fontSize: 'clamp(36px, 8vw, 80px)',
               }}
             >
               Make Brands
@@ -197,7 +182,7 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
-                fontSize: 'clamp(56px, 9vw, 80px)',
+                fontSize: 'clamp(36px, 8vw, 80px)',
                 color: '#0066ff',
               }}
             >
@@ -235,46 +220,9 @@ export default function HeroSection() {
           </div>
 
           <BrandSlider mounted={mounted} />
-        </motion.div>
+        </div>
 
-        {/* ── Phase 2: Large brand text — single fade in, no double fade ── */}
-        <motion.div
-          style={{ opacity: bigOpacity, scale: bigScale, y: bigY }}
-          className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none select-none"
-        >
-          <div
-            className="text-center uppercase"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 800,
-              fontSize: 'clamp(60px, 14vw, 200px)',
-              lineHeight: 0.82,
-              letterSpacing: '-0.03em',
-            }}
-          >
-            <div>
-              <span style={{ color: '#ffffff' }}>MADOX</span><span style={{ color: '#0066ff' }}>.</span>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* ── Scroll hint ── */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2"
-          style={{ opacity: hintOpacity }}
-        >
-          <span
-            className="text-white/60 text-[10px] tracking-[0.3em] uppercase"
-            style={{ fontFamily: 'var(--font-sans)' }}
-          >
-            Scroll
-          </span>
-          <motion.div
-            className="w-px bg-white/60"
-            animate={{ height: [16, 40, 16], opacity: [0.3, 0.8, 0.3] }}
-            transition={{ duration: 2, repeat: Infinity, ease: [0.23, 1, 0.32, 1] }}
-          />
-        </motion.div>
 
       </div>
     </section>

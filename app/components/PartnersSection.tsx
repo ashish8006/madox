@@ -31,8 +31,8 @@ function PartnerCard({ name, abbr }: { name: string; abbr: string }) {
     <div
       className="flex flex-col items-center justify-between shrink-0 rounded-2xl px-6 pt-8 pb-5"
       style={{
-        width: 200,
-        height: 160,
+        width: 160,
+        height: 130,
         backgroundColor: '#161616',
         border: '1px solid rgba(255,255,255,0.06)',
       }}
@@ -79,7 +79,7 @@ export default function PartnersSection() {
   return (
     <section className="py-24 overflow-hidden" style={{ backgroundColor: '#080808' }}>
       {/* Heading */}
-      <div className="text-center mb-16 px-8">
+      <div className="text-center mb-10 md:mb-16 px-6 md:px-8">
         <h2
           className="text-white leading-[1.2]"
           style={{

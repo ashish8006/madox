@@ -33,8 +33,8 @@ export default function ContactSection() {
     <section id="contact" className="relative py-28" style={{ backgroundColor: '#0a0908' }}>
       <div className="section-line mb-0" />
 
-      <div className="max-w-[1400px] mx-auto px-8 pt-20" ref={ref}>
-        <div className="flex flex-col md:flex-row gap-16 md:gap-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 pt-12 md:pt-20" ref={ref}>
+        <div className="flex flex-col md:flex-row gap-10 md:gap-24">
 
           <div className="w-full md:w-1/2">
             <motion.p

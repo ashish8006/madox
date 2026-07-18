@@ -48,9 +48,9 @@ export default function TestimonialsSection() {
 
   return (
     <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#080808' }}>
-      <div className="max-w-[900px] mx-auto px-8 text-center">
+      <div className="max-w-[900px] mx-auto px-6 md:px-8 text-center">
 
-        <div className="relative min-h-[320px] flex items-center justify-center mb-12">
+        <div className="relative min-h-[260px] md:min-h-[320px] flex items-center justify-center mb-12">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={active}

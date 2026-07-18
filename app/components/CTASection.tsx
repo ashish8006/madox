@@ -16,7 +16,7 @@ export default function CTASection() {
       <div className="flex flex-col lg:flex-row min-h-[420px]">
 
         {/* ── LEFT — content ── */}
-        <div className="relative z-10 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-20 lg:w-[52%]">
+        <div className="relative z-10 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 md:py-20 lg:w-[52%]">
 
           {/* Logo mark */}
           <motion.div
@@ -87,7 +87,7 @@ export default function CTASection() {
         </div>
 
         {/* ── RIGHT — image ── */}
-        <div className="relative lg:w-[48%] min-h-[380px] overflow-hidden">
+        <div className="relative lg:w-[48%] min-h-[250px] md:min-h-[380px] overflow-hidden">
           <img
             src="/images/portfolio/digital-marketing-strategy.avif"
             alt="Digital Marketing Strategy"

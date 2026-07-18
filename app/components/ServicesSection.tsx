@@ -52,7 +52,7 @@ export default function ServicesSection() {
           className="text-white/[0.025] font-black uppercase whitespace-nowrap"
           style={{
             fontFamily: 'var(--font-sans)',
-            fontSize: 'clamp(80px, 14vw, 200px)',
+            fontSize: 'clamp(48px, 14vw, 200px)',
             letterSpacing: '0.05em',
           }}
         >
@@ -60,7 +60,7 @@ export default function ServicesSection() {
         </motion.p>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 relative z-10">
         <div ref={headerRef} className="mb-20">
           <div className="flex items-baseline gap-4 flex-wrap">
             <motion.span
@@ -101,7 +101,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: i * 0.07, ease: [0.23, 1, 0.32, 1] }}
-              className="group flex items-center gap-8 md:gap-16 py-8 border-b cursor-pointer"
+              className="group flex items-center gap-4 md:gap-16 py-6 md:py-8 border-b cursor-pointer"
               style={{ borderColor: 'rgba(255,255,255,0.05)' }}
             >
               <div

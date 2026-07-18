@@ -49,7 +49,7 @@ export default function ConsultationSection() {
           <span
             className="font-black uppercase tracking-[0.08em] whitespace-nowrap"
             style={{
-              fontSize: 'clamp(48px, 10vw, 160px)',
+              fontSize: 'clamp(28px, 10vw, 160px)',
               color: 'rgba(255,255,255,0.09)',
               fontFamily: 'var(--font-sans)',
             }}

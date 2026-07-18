@@ -26,9 +26,9 @@ export default function AboutSection() {
   const mainY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
 
   return (
-    <section ref={sectionRef} id="about" className="relative py-28 overflow-hidden" style={{ backgroundColor: '#0a0908' }}>
-      <div className="max-w-[1400px] mx-auto px-8">
-        <div className="flex flex-col md:flex-row gap-16 items-start">
+    <section ref={sectionRef} id="about" className="relative py-16 md:py-28 overflow-hidden" style={{ backgroundColor: '#0a0908' }}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
 
           <div className="w-full md:w-1/2 relative">
             <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>

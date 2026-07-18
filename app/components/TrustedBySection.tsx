@@ -88,8 +88,8 @@ export default function TrustedBySection() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-16 mb-16" ref={ref}>
-        <div className="flex flex-col md:flex-row md:items-end gap-12 md:gap-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 mb-12 md:mb-16" ref={ref}>
+        <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-24">
 
           {/* Left — stat + label */}
           <div className="shrink-0">

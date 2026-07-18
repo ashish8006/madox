@@ -73,7 +73,7 @@ export default function LeadModal() {
             exit={{ opacity: 0, scale: 0.94, y: 24 }}
             transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
             className="relative w-full max-w-4xl flex overflow-hidden rounded-2xl shadow-2xl"
-            style={{ maxHeight: '90vh' }}
+            style={{ maxHeight: '92vh', overflowY: 'auto' }}
           >
             {/* ── LEFT — dark social proof panel ── */}
             <div

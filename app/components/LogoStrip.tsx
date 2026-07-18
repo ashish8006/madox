@@ -34,7 +34,7 @@ export default function LogoStrip() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ height: '90vh', minHeight: '580px' }}
+      style={{ height: '100vh', minHeight: '600px' }}
     >
 
       {/* ── Video layer ─────────────────────────────────── */}
@@ -98,7 +98,7 @@ export default function LogoStrip() {
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
-              fontSize: 'clamp(44px, 7.5vw, 112px)',
+              fontSize: 'clamp(28px, 7.5vw, 112px)',
             }}
           >
             Where Luxury
@@ -114,7 +114,7 @@ export default function LogoStrip() {
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
-              fontSize: 'clamp(44px, 7.5vw, 112px)',
+              fontSize: 'clamp(28px, 7.5vw, 112px)',
               color: '#0066ff',
             }}
           >
