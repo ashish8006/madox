@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const IMAGE = 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85'
+const IMAGE = '/images/portfolio/artificial-intelligence2.avif'
 
 export default function ConsultationSection() {
   const sectionRef = useRef<HTMLElement>(null)
